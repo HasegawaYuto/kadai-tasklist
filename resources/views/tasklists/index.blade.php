@@ -4,14 +4,15 @@
 <h1>タスク一覧</h1>
 @if(count($tasks)>0)
     <table>
-        <tr><th>ID</th><th>タスク</th></tr>
+        <tr><th>ID</th><th>タスク</th><th>ステータス</th></tr>
         @foreach($tasks as $task)
             <tr>
-                <th>{!! link_to_route('tasklists.show',$task->id,['id'=>$task->id]) !!}</th>
-                <th>{{ $task -> content }}</th>
-                <th>{!! Form::model($task,['route'=>['tasklists.destroy',$task->id],'method'=>'delete']) !!}
+                <td>{!! link_to_route('tasklists.show',$task->id,['id'=>$task->id]) !!}</td>
+                <td>{{ $task -> content }}</td>
+                <td>{{ $task -> status }}</td>
+                <td>{!! Form::model($task,['route'=>['tasklists.destroy',$task->id],'method'=>'delete']) !!}
                     {!! Form::submit('削除') !!}
-                    {!! Form::close() !!}</th>
+                    {!! Form::close() !!}</td>
             </tr>
         @endforeach
     </table>

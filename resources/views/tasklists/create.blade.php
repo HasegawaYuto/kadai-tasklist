@@ -7,6 +7,8 @@
 {!! Form::model($task,['route' => 'tasklists.store']) !!}
 {!! Form::label('content','タスク：') !!}
 {!! Form::text('content') !!}
+{!! Form::label('status','ステータス：') !!}
+{!! Form::text('status') !!}
 {!! Form::submit('登録') !!}
 {!! Form::close() !!}
 @endsection
